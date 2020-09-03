@@ -19,8 +19,9 @@
 19.	ASP NET Core razor pages validation	 https://www.youtube.com/watch?v=4kwAt72yJ4s&list=PL6n9fhu94yhX6J31qad0wSO1N_rgGbOPV&index=19
 20. Create form in asp net core razor pages    https://www.youtube.com/watch?v=r9CyRhGvV70&list=PL6n9fhu94yhX6J31qad0wSO1N_rgGbOPV&index=20
 21. ASP NET Core razor pages client side validation
-
-
+22. Delete operation in asp net core razor pages
+23. Partial views in asp net core   https://www.youtube.com/watch?v=GOPFq_A7Acg&list=PL6n9fhu94yhX6J31qad0wSO1N_rgGbOPV&index=23
+24. ASP NET Core view components  https://www.youtube.com/watch?v=exokw7WQQ-A&list=PL6n9fhu94yhX6J31qad0wSO1N_rgGbOPV&index=24
 
 
 
