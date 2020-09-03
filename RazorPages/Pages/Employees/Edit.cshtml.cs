@@ -23,7 +23,7 @@ namespace RazorPages
             this.employeeRepository = employeeRepository;
             this.webHostEnvironment = webHostEnvironment;
         }
-
+        [BindProperty]
         public Employee Employee { get; set; }
 
         [BindProperty]
@@ -34,9 +34,16 @@ namespace RazorPages
 
         public string Message { get; set; }
 
-        public IActionResult OnGet(int id)
+        public IActionResult OnGet(int? id)
         {
-            Employee = employeeRepository.GetEmployee(id);
+            if (id.HasValue)
+            {
+                Employee = employeeRepository.GetEmployee(id.Value);
+            }
+            else
+            {
+                Employee = new Employee();
+            }
 
             if (Employee == null)
             {
@@ -46,25 +53,35 @@ namespace RazorPages
             return Page();
         }
 
-        public IActionResult OnPost(Employee employee)
+        public IActionResult OnPost()
         {
-            if (Photo != null)
+            if (ModelState.IsValid)
             {
-                if (employee.PhotoPath != null)
+                if (Photo != null)
                 {
-                    string filePath = Path.Combine(webHostEnvironment.WebRootPath,
-                        "images", employee.PhotoPath);
-                    System.IO.File.Delete(filePath);
+                    if (Employee.PhotoPath != null)
+                    {
+                        string filePath = Path.Combine(webHostEnvironment.WebRootPath,
+                            "images", Employee.PhotoPath);
+                        System.IO.File.Delete(filePath);
+                    }
+
+                    Employee.PhotoPath = ProcessUploadedFile();
                 }
-
-                employee.PhotoPath = ProcessUploadedFile();
+                if (Employee.Id > 0)
+                {
+                    Employee = employeeRepository.Update(Employee);
+                }
+                else
+                {
+                    Employee = employeeRepository.Add(Employee);
+                }
+                return RedirectToPage("Index");
             }
-
-            Employee = employeeRepository.Update(employee);
-            return RedirectToPage("Index");
+            return Page();
         }
 
-        public void OnPostUpdateNotificationPreferences(int id)
+        public IActionResult OnPostUpdateNotificationPreferences(int id)
         {
             if (Notify)
             {
@@ -75,7 +92,8 @@ namespace RazorPages
                 Message = "You have turned off email notifications";
             }
 
-            Employee = employeeRepository.GetEmployee(id);
+            TempData["message"] = Message;
+            return RedirectToPage("Details", new {id=id});
         }
 
         private string ProcessUploadedFile()

@@ -24,6 +24,26 @@ namespace RazorPages.Services
                 Email="david@tim.com"}
             };
         }
+
+        public Employee Add(Employee newEmployee)
+        {
+            newEmployee.Id = _employeeList.Max(e => e.Id)+1;
+            _employeeList.Add(newEmployee);
+            return newEmployee;
+        }
+
+        public Employee Delete(int id)
+        {
+            var employeeToDelete = _employeeList.FirstOrDefault(e => e.Id == id);
+
+            if (employeeToDelete != null)
+            {
+                _employeeList.Remove(employeeToDelete);
+            }
+
+            return employeeToDelete;
+        }
+
         public IEnumerable<Employee> GetAllEmployees()
         {
             return _employeeList;

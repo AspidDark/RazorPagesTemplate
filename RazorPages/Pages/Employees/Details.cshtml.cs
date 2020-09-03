@@ -16,6 +16,8 @@ namespace RazorPages
 
         //[BindProperty(SupportsGet = true)]
         //public int Id { get; set; }
+        [TempData]
+        public string Message { get; set; }
 
         public DetailsModel(IEmployeeRepository employeeRepository)
         {

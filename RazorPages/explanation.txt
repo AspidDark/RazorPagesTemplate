@@ -15,7 +15,12 @@
 15. Updating data in asp net core razor pages 
 16. File upload in asp net core razor pages ()to send files form method="post" class="mt-3" enctype="multipart/form-data"
 17. Handle multiple forms in asp net core razor pages   <form method="post" asp-page-handler="UpdateNotificationPreferences">
-18. TempData in ASP NET Core   https://www.youtube.com/watch?v=BZQH9Bg9z6s&list=PL6n9fhu94yhX6J31qad0wSO1N_rgGbOPV&index=18
+18. TempData in ASP NET Core  () TempData["message"]  stores data for request  TempData.Keep();
+19.	ASP NET Core razor pages validation	 https://www.youtube.com/watch?v=4kwAt72yJ4s&list=PL6n9fhu94yhX6J31qad0wSO1N_rgGbOPV&index=19
+20. Create form in asp net core razor pages    https://www.youtube.com/watch?v=r9CyRhGvV70&list=PL6n9fhu94yhX6J31qad0wSO1N_rgGbOPV&index=20
+21. ASP NET Core razor pages client side validation
+
+
 
 
 
