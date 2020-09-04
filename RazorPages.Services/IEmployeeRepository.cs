@@ -8,6 +8,8 @@ namespace RazorPages.Services
     {
         IEnumerable<Employee> GetAllEmployees();
 
+        IEnumerable<DeptHeadCount> EmployeeCountByDept(Dept? dept);
+
         Employee GetEmployee(int id);
 
         Employee Update(Employee updatedEmployee);
@@ -15,5 +17,6 @@ namespace RazorPages.Services
         Employee Add(Employee newEmployee);
 
         Employee Delete(int id);
+
     }
 }

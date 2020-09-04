@@ -5,17 +5,18 @@
     ViewData["ShowButtons"] = true;
 }
 
-    <style>
-        .btn {
-            width: 75px;
-        }
-    </style>
+<style>
+    .btn {
+        width: 75px;
+    }
+</style>
+@await Component.InvokeAsync("HeadCount");
 
 <h1>Emploees</h1>
 
 <div class="card-deck">
     @foreach (var employee in Model.Employees)
     {
-       <partial name="_DisplayEmployeePartial" model="employee" view-data="ViewData" />
+        <partial name="_DisplayEmployeePartial" model="employee" view-data="ViewData" />
     }
 </div>
